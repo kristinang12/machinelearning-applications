@@ -82,6 +82,8 @@ def logistic_regression_ui():
                                formatted_proba=formatted_proba, prediction=prediction)
     else:
         return render_template('logistic_regression_ui.html')
-
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Use the PORT environment variable if available, otherwise default to 8080
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host='0.0.0.0', port=port)
+
